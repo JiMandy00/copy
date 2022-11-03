@@ -32,9 +32,9 @@ class HospitalParserTest {
     @Autowired
     HospitalService hospitalService;
 
-    @Test
-    @DisplayName("Hospital이 insert가 잘 되고, select도 잘 되는지")
-    void addAndGet() {
+//    @Test
+//    @DisplayName("Hospital이 insert가 잘 되고, select도 잘 되는지")
+//    void addAndGet() {
 //        hospitalDao.deleteAll();
 //        assertEquals(0, hospitalDao.getCount());
 //        HospitalParser hp = new HospitalParser();
@@ -63,19 +63,19 @@ class HospitalParserTest {
 //        assertEquals(selectedHospital.getTotalNumberOfBeds(), hospital.getTotalNumberOfBeds());
 //        // 날짜, float
 //        assertEquals(selectedHospital.getTotalAreaSize(), hospital.getTotalAreaSize());
-    }
+//    }
 
     @Test
     @DisplayName("10만건 이상 데이터가 파싱 되는지")
     void oneHundreadThousandRows() throws IOException {
-        // 서버환경에서 build할 때 문제가 생길 수 있습니다.
-        // 어디에서든지 실행할 수 있게 짜는 것이 목표.
-//        hospitalDao.deleteAll();
-//        String filename = "C:\\Users\\ocean\\Desktop\\fulldata_01_01_02_P_의원_utf8.csv";
-//        int cnt = this.hospitalService.insertLargeVolumeHospitalData(filename);
-//        assertTrue(cnt > 1000);
-//        assertTrue(cnt > 10000);
-//        System.out.printf("파싱된 데이터 개수:%d", cnt);
+//         서버환경에서 build할 때 문제가 생길 수 있습니다.
+//         어디에서든지 실행할 수 있게 짜는 것이 목표.
+        // hospitalDao.deleteAll();
+        String filename = "C:\\Users\\c\\Downloads\\fulldata_01_01_02_P_의원_utf8_2.txt";
+        int cnt = this.hospitalService.insertLargeVolumeHospitalData(filename);
+        assertTrue(cnt > 1000);
+        assertTrue(cnt > 10000);
+        System.out.printf("파싱된 데이터 개수:%d", cnt);
     }
 
     @Test

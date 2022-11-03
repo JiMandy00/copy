@@ -21,15 +21,23 @@ public class HospitalController {
         this.hospitalDao = hospitalDao;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Hospital> get(@PathVariable Integer id) {
-        Hospital hospital = hospitalDao.findById(id);
-        Optional<Hospital> opt = Optional.of(hospital);
+//    @GetMapping("/{id}")
+//    public ResponseEntity<Hospital> get(@PathVariable Integer id) {
+//        Hospital hospital = hospitalDao.findById(id);
+//        Optional<Hospital> opt = Optional.of(hospital);
+//
+//        if (!opt.isEmpty()) {
+//            return ResponseEntity.ok().body(hospital);
+//        } else {
+//            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Hospital());
+//        }
+//    }
+//}
 
-        if (!opt.isEmpty()) {
-            return ResponseEntity.ok().body(hospital);
-        } else {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new Hospital());
-        }
+    @GetMapping("/{id}")
+    public String get(@PathVariable Integer id) {
+        Hospital hospital = hospitalDao.findById(id);
+        return hospital.getHospitalName();
     }
+
 }
